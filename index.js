@@ -18,7 +18,7 @@ db.getConnection()
 app.use(express.json());
 // app.use('/', schoolRoutes);
 
-app.use(cors());
+app.use(cors({ limit: '2mb' }));
 
 const PORT = process.env.PORT || 3000;
 
