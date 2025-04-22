@@ -22,7 +22,25 @@ app.use(cors({ limit: '2mb' }));
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res)=>{res.send("API Working!")})
+app.get('/', (req, res) => {
+  res.send(`
+      <div style="font-family: Arial, sans-serif; padding: 2rem; background-color: #f0f4f8; color: #333;">
+          <h1 style="color: #2c3e50;"> Welcome to the School API</h1>
+          <p>Explore the available endpoints below:</p>
+          <ul style="line-height: 1.8;">
+              <li>
+                  <strong> Add a School:</strong><br>
+                  <code>/addSchool</code>
+              </li>
+              <li>
+                  <strong> Find Nearby Schools:</strong><br>
+                  <code>/listSchools?latitude=your_latitude&longitude=your_longitude</code>
+              </li>
+          </ul>
+      </div>
+  `);
+});
+
 
 app.use('/',router)
 app.listen(PORT, () => console.log(` Server running on port ${PORT}`));

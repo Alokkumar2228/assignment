@@ -23,6 +23,7 @@ const addSchool = async(req,res) =>{
     }
 
     const {name,address,latitude,longitude} = req.body;
+    
     try {
         const [result] = await db.execute('insert into schools (name,address,latitude,longitude) values (?,?,?,?)'
         ,[name,address,latitude,longitude])
